@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.0
+// @version      1.1
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
 // @description  PvPRO scripts
 // @author       me
