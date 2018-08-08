@@ -2,8 +2,8 @@
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
 // @version      1.2
-// @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
-// @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
+// @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
+// @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
 // @description  PvPRO scripts
 // @author       me
