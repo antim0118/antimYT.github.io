@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.1
+// @version      1.0
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
+// @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
+// @icon         https://cdn.pvpro.com/static/img/favicon.ico
 // @description  PvPRO scripts
 // @author       me
 // @match        https://www.pvpro.com/*
@@ -10,22 +12,28 @@
 // ==/UserScript==
 
 //доллар к рублю
-var dol = 63.73;
+var dol = 64.67;
 
 function DeleteAds()
 {
     //delete promo on main page
-    var _elem = document.getElementById('centralBanner');
-    var elem = _elem.getElementsByClassName('owl-wrapper-outer')[0];
-    if(elem != null)
-    {
-        elem.parentNode.removeChild(elem);
-    }
-    elem = _elem.getElementsByClassName('owl-controls clickable')[0];
-    if(elem != null)
-    {
-        elem.parentNode.removeChild(elem);
-    }
+    setInterval(function() {
+        var _elem = document.getElementById('centralBanner');
+        if(_elem){
+            var elem = _elem.getElementsByClassName('owl-wrapper-outer')[0];
+            if(elem != null)
+            {
+                elem.parentNode.removeChild(elem);
+            }
+            elem = _elem.getElementsByClassName('owl-controls clickable')[0];
+            if(elem != null)
+            {
+                elem.parentNode.removeChild(elem);
+            }
+        }
+    }, 100);
+
+    
 
     //delete 'get free coins' button
     elem = document.getElementsByClassName("top-free-coins flex-middle-left")[0];
@@ -45,7 +53,10 @@ function DeleteAds()
     elem = document.getElementById('footer');
     if(elem != null)
     {
-        elem.parentNode.removeChild(elem);
+        if(!Contains(window.location.href, "pvpro/store/items"))
+        {
+            elem.parentNode.removeChild(elem);
+        }
     }
 }
 
@@ -58,7 +69,7 @@ function NewStyle()
     var style4 = ".btn-primary { -webkit-transition: -webkit-transform .8s ease-in-out; transition:         transform .8s ease-in-out; } .btn-primary:hover { -webkit-transform: rotate(6deg) scaleX(1.1) scaleY(1.1); transform: rotate(6deg) scaleX(1.1) scaleY(1.1)} ";
     var style8 = ".joined-ladder { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .joined-ladder:hover { -webkit-transform: scaleX(2) scaleY(2); transform: scaleX(2) scaleY(2)} ";
     var style9 = ".btn-danger {border: 1px solid #e53935;background: #c62828;}.btn-danger:hover {border: 1px solid #d32f2f;background-color: #b71c1c;background: #b71c1c;}";
-    var style10 = "";
+    var style10 = ".inventory-item-img {-webkit-animation: shaking 3s linear infinite;-moz-animation: shaking 3s linear infinite;-ms-animation: shaking 3s linear infinite;-o-animation: shaking 3s linear infinite;animation: shaking 3s linear infinite;animation-timing-function: ease;}@-webkit-keyframes shaking /* Safari and Chrome */ {0% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}50% {-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);transform: rotate(3deg);}100% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}}";
 
     var style_uv1_5 = ".uv1_5 { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .uv1_5:hover { -webkit-transform: scaleX(1.5) scaleY(1.5); transform: scaleX(1.5) scaleY(1.5)} ";
     var style_uv2 = ".uv2 { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .uv2:hover { -webkit-transform: scaleX(2) scaleY(2); transform: scaleX(2) scaleY(2)} ";
@@ -400,17 +411,37 @@ function NewSound()
     setInterval(function() {
         if(!gameFilledSnd)
         {
-            gameFilledSnd = new Audio("https://github.com/antimYT/antimYT.github.io/blob/master/game_ready_02.wav?raw=true");
+            gameFilledSnd = new Audio("https://github.com/antimYT/antimYT.github.io/blob/master/game_ready_02.mp3?raw=true");
         }
         //console.log(gameFilledSnd.getAttribute('src'));
-        if (gameFilledSnd.getAttribute('src') != "https://github.com/antimYT/antimYT.github.io/blob/master/game_ready_02.wav?raw=true")
+        if (gameFilledSnd.getAttribute('src') != "https://github.com/antimYT/antimYT.github.io/blob/master/game_ready_02.mp3?raw=true")
         {
             //console.log("+");
-            gameFilledSnd = new Audio("https://github.com/antimYT/antimYT.github.io/blob/master/game_ready_02.wav?raw=true");
+            gameFilledSnd = new Audio("https://github.com/antimYT/antimYT.github.io/blob/master/game_ready_02.mp3?raw=true");
         }
         gameFilledSnd.volume = 1.0;
     }, 1000);
 }
+
+
+function FixStore()
+{
+    var button = document.getElementsByClassName('store-tab c-pointer ')[0];
+    if(button)
+    {
+        button.innerHTML = '<a href="/pvpro/store/items" class="c-pointer flex-middle-center"><svg width="30" height="25" style="fill: currentColor" class="d-none d-xl-inline-block mb-6 mr-6"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/pvpro/resources/svg/20180806085325314/img-vectors.svg#i-cz75"></use></svg>STORE</a>';
+    }
+
+
+    if(Contains(window.location.href, "pvpro/store/items"))
+    {
+
+    }
+}
+
+
+
+
 
 
 function Sleep(ms)
@@ -448,4 +479,5 @@ window.addEventListener('load', function() {
     NewStyle();
     DeleteAds();
     AutoAccept();
+    FixStore();
 });
