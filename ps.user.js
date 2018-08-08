@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.1
+// @version      1.101
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
 // @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 //доллар к рублю
-var dol = 64.67;
+var dol = 64.670;
 
 function DeleteAds()
 {
