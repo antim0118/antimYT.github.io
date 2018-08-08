@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.2
+// @version      1.0
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
+// @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
 // @description  PvPRO scripts
 // @author       me
@@ -69,6 +70,7 @@ function NewStyle()
     var style8 = ".joined-ladder { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .joined-ladder:hover { -webkit-transform: scaleX(2) scaleY(2); transform: scaleX(2) scaleY(2)} ";
     var style9 = ".btn-danger {border: 1px solid #e53935;background: #c62828;}.btn-danger:hover {border: 1px solid #d32f2f;background-color: #b71c1c;background: #b71c1c;}";
     var style10 = ".inventory-item-img {-webkit-animation: shaking 3s linear infinite;-moz-animation: shaking 3s linear infinite;-ms-animation: shaking 3s linear infinite;-o-animation: shaking 3s linear infinite;animation: shaking 3s linear infinite;animation-timing-function: ease;}@-webkit-keyframes shaking /* Safari and Chrome */ {0% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}50% {-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);transform: rotate(3deg);}100% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}}";
+    var style11 = ".btn-store-item {box-shadow: 0 0 10px 0 rgba(158, 158, 158, 0.5); border: 2px solid #616161; background: #424242; background: #424242;padding: 4px 10px}.btn-store-item:hover,.btn-store-item:focus,.btn-store-item:active {box-shadow: 0 0 20px 0 rgba(224, 224, 224, 0.6); border: 2px solid #757575; background-color: #757575; background: #616161;}";
 
     var style_uv1_5 = ".uv1_5 { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .uv1_5:hover { -webkit-transform: scaleX(1.5) scaleY(1.5); transform: scaleX(1.5) scaleY(1.5)} ";
     var style_uv2 = ".uv2 { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .uv2:hover { -webkit-transform: scaleX(2) scaleY(2); transform: scaleX(2) scaleY(2)} ";
@@ -81,7 +83,7 @@ function NewStyle()
     var style6 = "body { background: #0C0E11 no-repeat fixed; }";
     var style7 = ".tabs-main>li.store-tab>a,.tabs-main>li.store-tab>a:hover,.tabs-main>li.store-tab>a:visited,.tabs-main>li.store-tab>a:active,.tabs-main>li.store-tab>a:focus {color: white;background: #326799;}.tabs-main>li.store-tab>a:hover,.tabs-main>li.store-tab>a:active,.tabs-main>li.active.store-tab>a {color: white;text-shadow: none;background-color: #13171c;background: #125799;}";
 
-    var styletext = '<style>' + style1 + style2 + style3 + style4 + style5 + style6 + style7 + style8 + style9 + style10 + style_uv1_5 + style_uv2 + style_uv4 + "</style>";
+    var styletext = '<style>' + style1 + style2 + style3 + style4 + style5 + style6 + style7 + style8 + style9 + style10 + style11 + style_uv1_5 + style_uv2 + style_uv4 + "</style>";
     var body = document.getElementsByTagName("body")[0];
     body.insertAdjacentHTML('beforeend', styletext);
 }
@@ -439,6 +441,19 @@ function FixStore()
 }
 
 
+function UpdateScriptButton()
+{
+    var _header = document.getElementById('headerNav');
+    if (_header)
+    {
+        var header = _header.getElementsByClassName('header-nav h-100')[0];
+        if(header)
+        {
+            header.innerHTML += '<li class="flex-middle-left"><a class="px-10 green" href="https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js">Update script</a></li>';
+        }
+    }
+}
+
 
 
 
@@ -479,4 +494,5 @@ window.addEventListener('load', function() {
     DeleteAds();
     AutoAccept();
     FixStore();
+    UpdateScriptButton();
 });
