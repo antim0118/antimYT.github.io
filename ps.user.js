@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.1
+// @version      1.2
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 //доллар к рублю
-var dol = 66.67;
+var dol = 66.84;
 
 
 //variables and load function
@@ -50,7 +50,7 @@ function DeleteAds()
     
 
     //delete 'get free coins' button
-    elem = document.getElementsByClassName("top-free-coins flex-middle-left")[0];
+    var elem = document.getElementsByClassName("top-free-coins flex-middle-left")[0];
     if(elem != null)
     {
         elem.parentNode.removeChild(elem);
