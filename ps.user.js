@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.0
+// @version      1.1
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
@@ -12,7 +12,21 @@
 // ==/UserScript==
 
 //доллар к рублю
-var dol = 64.67;
+var dol = 66.67;
+
+
+//variables and load function
+var Coins;
+function LoadVariables()
+{
+    if(document.getElementById('player-credits-balance')){
+        Coins = parseInt(document.getElementById('player-credits-balance').innerHTML.replace(",",""));
+    }
+
+    console.log("Variables loaded!");
+    console.log("Coins: " + Coins);
+}
+
 
 function DeleteAds()
 {
@@ -43,11 +57,12 @@ function DeleteAds()
     }
 
     //delete giveaways on main page
+    /*
     elem = document.getElementById('promo-spots-container');
     if(elem != null)
     {
         elem.parentNode.removeChild(elem);
-    }
+    }*/
 
     //delete footer
     elem = document.getElementById('footer');
@@ -69,7 +84,7 @@ function NewStyle()
     var style4 = ".btn-primary { -webkit-transition: -webkit-transform .8s ease-in-out; transition:         transform .8s ease-in-out; } .btn-primary:hover { -webkit-transform: rotate(6deg) scaleX(1.1) scaleY(1.1); transform: rotate(6deg) scaleX(1.1) scaleY(1.1)} ";
     var style8 = ".joined-ladder { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .joined-ladder:hover { -webkit-transform: scaleX(2) scaleY(2); transform: scaleX(2) scaleY(2)} ";
     var style9 = ".btn-danger {border: 1px solid #e53935;background: #c62828;}.btn-danger:hover {border: 1px solid #d32f2f;background-color: #b71c1c;background: #b71c1c;}";
-    var style10 = ".inventory-item-img {-webkit-animation: shaking 3s linear infinite;-moz-animation: shaking 3s linear infinite;-ms-animation: shaking 3s linear infinite;-o-animation: shaking 3s linear infinite;animation: shaking 3s linear infinite;animation-timing-function: ease;}@-webkit-keyframes shaking /* Safari and Chrome */ {0% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}50% {-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);transform: rotate(3deg);}100% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}}";
+    var style10 = "";//".inventory-item-img {-webkit-animation: shaking 3s linear infinite;-moz-animation: shaking 3s linear infinite;-ms-animation: shaking 3s linear infinite;-o-animation: shaking 3s linear infinite;animation: shaking 3s linear infinite;animation-timing-function: ease;}@-webkit-keyframes shaking /* Safari and Chrome */ {0% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}50% {-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);transform: rotate(3deg);}100% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}}";
     var style11 = ".btn-store-item {box-shadow: 0 0 10px 0 rgba(158, 158, 158, 0.5); border: 2px solid #616161; background: #424242; background: #424242;padding: 4px 10px}.btn-store-item:hover,.btn-store-item:focus,.btn-store-item:active {box-shadow: 0 0 20px 0 rgba(224, 224, 224, 0.6); border: 2px solid #757575; background-color: #757575; background: #616161;}";
 
     var style_uv1_5 = ".uv1_5 { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .uv1_5:hover { -webkit-transform: scaleX(1.5) scaleY(1.5); transform: scaleX(1.5) scaleY(1.5)} ";
@@ -434,9 +449,31 @@ function FixStore()
     }
 
 
+    //change button color to green if have enough money
     if(Contains(window.location.href, "pvpro/store/items"))
     {
+        setInterval(function() {
+            var storelist = document.getElementById('store-items-list');
+            if(storelist){
 
+                var items = storelist.getElementsByTagName('div');
+                Array.prototype.forEach.call(items, function(_item) {
+                    if(Contains(_item.className, "col-xxl-2 col-xl-2point4 col-lg-3 col-md-4 col-sm-6 store-item-container pb-5"))
+                    {
+                        var _item_lowbar = _item.getElementsByClassName('px-10')[0];
+                        var _item_textright = _item_lowbar.getElementsByClassName('text-right')[0];
+                        var _item_buybutton = _item_textright.getElementsByClassName('btn btn-store-item')[0];
+                        if(_item_buybutton){
+                            if(parseInt(_item_buybutton.innerText.replace(" ", "").replace(",", "")) <= Coins){
+                                _item_buybutton.classList.add("green");
+                            }
+                            console.log(parseInt(_item_buybutton.innerText.replace(" ", "").replace(",", "")));
+                        }
+                    }
+                });
+
+            }
+        }, 2000);
     }
 }
 
@@ -454,6 +491,22 @@ function UpdateScriptButton()
     }
 }
 
+function SlideTabs()
+{
+    setInterval(function() {
+        var _tabs = document.getElementsByClassName('nav nav-tabs float-right tabs-main')[0];
+        if(_tabs){
+            var tabs = document.getElementsByTagName('li');
+
+            Array.prototype.forEach.call(tabs, function(_tab) {
+                if(!Contains(_tab.innerHTML, ".slideToggle('fast')") && Contains(_tab.innerHTML, "loadAjax"))
+                {
+                    _tab.innerHTML = _tab.innerHTML.replace("loadAjax(", "$('#basic-container').slideToggle('fast');setTimeout(loadAjax(").replace('\');" class="c-pointer', '\'), 1500);" class="c-pointer');
+                }
+            });
+        }
+    }, 1000);
+}
 
 
 
@@ -479,20 +532,33 @@ function Contains(string, substring)
 
 
 window.addEventListener('load', function() {
+    if(isAuthenticated)
+    {
+        LoadVariables();
+    }
+
+    UpdateScriptButton();
     NewSound();
     TournamentBracketsPlaces();
     ReportInGamesTab();
-    Reputation();
+
     LeaguePlaces();
-    MissionsTranslations();
+
     Increase();
     MissionsAnimation();
     JoinSoloToSolo();
-    CoinsToRubles();
+
     Animate_CSS();
     NewStyle();
     DeleteAds();
     AutoAccept();
     FixStore();
-    UpdateScriptButton();
+    SlideTabs();
+
+    if(isAuthenticated)
+    {
+        Reputation();
+        CoinsToRubles();
+        MissionsTranslations();
+    }
 });
