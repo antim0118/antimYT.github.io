@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.2
+// @version      1.3
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
@@ -47,7 +47,7 @@ function DeleteAds()
         }
     }, 100);
 
-    
+
 
     //delete 'get free coins' button
     var elem = document.getElementsByClassName("top-free-coins flex-middle-left")[0];
@@ -84,7 +84,7 @@ function NewStyle()
     var style4 = ".btn-primary { -webkit-transition: -webkit-transform .8s ease-in-out; transition:         transform .8s ease-in-out; } .btn-primary:hover { -webkit-transform: rotate(6deg) scaleX(1.1) scaleY(1.1); transform: rotate(6deg) scaleX(1.1) scaleY(1.1)} ";
     var style8 = ".joined-ladder { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .joined-ladder:hover { -webkit-transform: scaleX(2) scaleY(2); transform: scaleX(2) scaleY(2)} ";
     var style9 = ".btn-danger {border: 1px solid #e53935;background: #c62828;}.btn-danger:hover {border: 1px solid #d32f2f;background-color: #b71c1c;background: #b71c1c;}";
-    var style10 = "";//".inventory-item-img {-webkit-animation: shaking 3s linear infinite;-moz-animation: shaking 3s linear infinite;-ms-animation: shaking 3s linear infinite;-o-animation: shaking 3s linear infinite;animation: shaking 3s linear infinite;animation-timing-function: ease;}@-webkit-keyframes shaking /* Safari and Chrome */ {0% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}50% {-webkit-transform: rotate(3deg);-o-transform: rotate(3deg);transform: rotate(3deg);}100% {-webkit-transform: rotate(-3deg);-o-transform: rotate(-3deg);transform: rotate(-3deg);}}";
+    var style10 = ".gglow {box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); border: 2px solid #000000; background: rgba(0, 0, 0, 0.5); padding: 4px 10px}";
     var style11 = ".btn-store-item {box-shadow: 0 0 10px 0 rgba(158, 158, 158, 0.5); border: 2px solid #616161; background: #424242; background: #424242;padding: 4px 10px}.btn-store-item:hover,.btn-store-item:focus,.btn-store-item:active {box-shadow: 0 0 20px 0 rgba(224, 224, 224, 0.6); border: 2px solid #757575; background-color: #757575; background: #616161;}";
 
     var style_uv1_5 = ".uv1_5 { -webkit-transition: -webkit-transform .4s ease-in-out; transition:         transform .4s ease-in-out; } .uv1_5:hover { -webkit-transform: scaleX(1.5) scaleY(1.5); transform: scaleX(1.5) scaleY(1.5)} ";
@@ -125,7 +125,7 @@ function CoinsToRubles()
 {
     var elem = document.getElementById('player-credits-balance');
     var coins = elem.innerHTML;
-    elem.innerHTML = (coins, coins + " (~" + (parseInt(parseInt(coins.replace(/,/g, "")) * dol / 1000)) + " rubles)");
+    elem.innerHTML = (coins, coins + " (~" + (parseInt(parseInt(coins.replace(/,/g, "")) * dol / 1000)) + "₽)");
 }
 
 
@@ -288,7 +288,6 @@ function LeaguePlaces()
 
     }, 3000);
 }
-
 
 function Reputation()
 {
@@ -508,6 +507,32 @@ function SlideTabs()
     }, 1000);
 }
 
+function Giveaways_KillsPerDay()
+{
+    var gws_timer = setInterval(function() {
+        var giveaways = document.getElementsByClassName('owl-item');
+
+        Array.prototype.forEach.call(giveaways, function(_gws) {
+            var gamestext = _gws.getElementsByClassName('questJoinButton pt-0 pb-6 px-6')[0].getElementsByTagName('span')[0].innerHTML;
+            var _g1 = parseFloat(gamestext.split("/")[0]);
+            var _g2 = parseFloat(gamestext.split("/")[1]);
+            var gamesleft = parseFloat(_g2 - _g1);
+            if(gamesleft > 0){
+                var time = parseFloat(_gws.getElementsByClassName('countdown-timer orange')[0].getAttribute("data-target-millis")) / 1000;
+                var nowtime = parseFloat(parseInt(new Date().getTime() / 1000));
+                var timeleft = time - nowtime;
+
+                var gpd = (gamesleft / (timeleft/60/60/24)).toFixed(2);
+
+                var leftside = _gws.getElementsByClassName('promo-sidebar-body position-relative border-bottom-1 border-black')[0].getElementsByTagName('div')[0];
+                leftside.innerHTML = '<div class = "text-left white pl-6"><span class="white">GPD: </span><span class="orange" style="font-size: 16px">' + gpd + '</span></div>' + leftside.innerHTML;
+
+                console.log(time + ' / ' + gamesleft);
+                clearInterval(gws_timer);
+            }
+        });
+    }, 1000);
+}
 
 
 
@@ -543,7 +568,6 @@ window.addEventListener('load', function() {
     ReportInGamesTab();
 
     LeaguePlaces();
-
     Increase();
     MissionsAnimation();
     JoinSoloToSolo();
@@ -560,5 +584,6 @@ window.addEventListener('load', function() {
         Reputation();
         CoinsToRubles();
         MissionsTranslations();
+        Giveaways_KillsPerDay();
     }
 });
