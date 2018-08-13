@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.3
+// @version      1.4
 // @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
@@ -12,19 +12,24 @@
 // ==/UserScript==
 
 //доллар к рублю
-var dol = 66.84;
+var dol = 67.94;
 
 
 //variables and load function
 var Coins;
+var width;
+var height;
 function LoadVariables()
 {
     if(document.getElementById('player-credits-balance')){
         Coins = parseInt(document.getElementById('player-credits-balance').innerHTML.replace(",",""));
     }
+    width = window.innerWidth;
+    height = window.innerHeight;
 
     console.log("Variables loaded!");
     console.log("Coins: " + Coins);
+    console.log("Width=" + width + ", Height=" + height);
 }
 
 
@@ -316,31 +321,6 @@ function ReportInGamesTab()
                     _gameid.innerHTML = "# " + gameid + " (<a target=\"_blank\" onclick=\"showGameFeedback(" + gameid + ");\" class=\"blue\">report</a>)"
                 }
             });
-
-            var element = document.getElementsByClassName('nyroModalCont')[0];
-            if(element != null)
-            {
-                //element.setAttribute("style", "position: fixed; width: 819.984px; height: 500px; top: 197.508px; left: 614.508px; overflow: auto;");
-                var windowheight = parseInt(document.getElementsByClassName('nyroModalCont')[0].offsetHeight);
-                windowheight = 600;
-                if (element.getAttribute("style").indexOf("height: " + windowheight + "px;") == -1)
-                {
-                    //element.setAttribute("style", element.getAttribute("style") + "height: 800px;");
-
-                    element.setAttribute("style", element.getAttribute("style") + "height: " + windowheight + "px;top: 100px");
-                    //top: 150.008px
-
-                    var _elelelelmnt = element.getElementsByTagName('div');
-
-                    Array.prototype.forEach.call(_elelelelmnt, function(_elelelelmn2) {
-                        if(Contains(_elelelelmn2.className, "nyroModalBody"))
-                        {
-                            _elelelelmn2.setAttribute("style", _elelelelmn2.getAttribute("style") + "height: " + (parseInt(windowheight)-150) + "px;");
-                        }
-                    });
-
-                }
-            }
         }
     }, 3000);
 }
@@ -534,6 +514,41 @@ function Giveaways_KillsPerDay()
     }, 1000);
 }
 
+function nyroModalFix()
+{
+    setInterval(function() {
+        var nyroModals = document.getElementsByClassName('nyroModalCont');
+
+        Array.prototype.forEach.call(nyroModals, function(_nm) {
+
+            var mod_height = height - 100;
+            var mod_top = 50;
+
+            if(!Contains(_nm.getAttribute("style"), "height: " + mod_height + "px;"))
+            {
+                _nm.setAttribute("style", _nm.getAttribute("style") + "height: " + mod_height + "px; top: " + mod_top + "px;");
+            }
+
+
+            //fix report window
+            var _divs = _nm.getElementsByTagName('div');
+            Array.prototype.forEach.call(_divs, function(_div) {
+                if(Contains(_div.className, 'nyroModalBody'))
+                {
+                    console.log(_div);
+                    if(!Contains(_div.getAttribute("style"), "height: " + (mod_height-150) + "px;"))
+                    {
+                        _div.setAttribute("style", _div.getAttribute("style") + "height: " + (mod_height-150) + "px;");
+                    }
+                }
+            });
+
+        });
+    }, 1000);
+}
+
+
+
 
 
 function Sleep(ms)
@@ -550,9 +565,38 @@ function Replace(object, from, to)
     }
 }
 
+function GetResponse(url)
+{
+    var xhr = new XMLHttpRequest();
+    var serverResponse = "";
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4)
+        {
+            serverResponse = xhr.responseText;
+            return serverResponse;
+        }
+    };
+    xhr.send(null);
+    while(serverResponse == "")
+    {
+        Sleep(1);
+    }
+}
+
 function Contains(string, substring)
 {
     return string.indexOf(substring) !== -1;
+}
+
+function ClassThatContains(element, PartOfClassName)
+{
+    Array.prototype.forEach.call(element, function(_ffuunncc) {
+        if(Contains(_ffuunncc.className, PartOfClassName))
+        {
+            console.log(_ffuunncc);
+        }
+    });
 }
 
 
@@ -585,5 +629,6 @@ window.addEventListener('load', function() {
         CoinsToRubles();
         MissionsTranslations();
         Giveaways_KillsPerDay();
+        nyroModalFix();
     }
 });
