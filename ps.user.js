@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         PvPRO scripts
 // @namespace    https://github.com/antimYT/
-// @version      1.4
-// @updateURL    https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
-// @downloadURL  https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/ps.user.js
+// @version      1.5
+// @license      MIT
 // @icon         https://cdn.pvpro.com/static/img/favicon.ico
+// @updateURL    https://openuserjs.org/meta/antimYT/PvPRO_scripts.meta.js
+// @copyright    2018, antimYT (https://openuserjs.org//users/antimYT)
 // @description  PvPRO scripts
 // @author       me
 // @match        https://www.pvpro.com/*
@@ -547,6 +548,19 @@ function nyroModalFix()
     }, 1000);
 }
 
+function Login()
+{
+    var headerNav = document.getElementById('headerNav');
+    if(headerNav)
+    {
+        var loginbutton = headerNav.getElementsByClassName('header-nav-info h-100')[0].getElementsByTagName('li')[0];
+        if(loginbutton)
+        {
+            loginbutton.innerHTML = loginbutton.innerHTML.replace('href="/pvpro/account/choose"', 'onclick="loadModal(\'https://www.pvpro.com/pvpro/account/choose?isModal=true\', false)"')
+        }
+    }
+}
+
 
 
 
@@ -601,6 +615,11 @@ function ClassThatContains(element, PartOfClassName)
 
 
 window.addEventListener('load', function() {
+    if(!isAuthenticated)
+    {
+        Login();
+    }
+
     if(isAuthenticated)
     {
         LoadVariables();
