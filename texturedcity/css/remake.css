@@ -1,0 +1,322 @@
+@charset "utf-8";
+
+body {
+	background-color:#0e1114;
+	margin:0;
+	padding:0;
+	font-family:Calibri,Arial, Helvetica, sans-serif;
+	font-size:18px;
+	line-height:22px;
+	color:#d1d3d1;
+	text-align:left;
+}
+
+p {
+	margin:0;
+	padding:0;
+	font-family:Calibri,Arial, Helvetica, sans-serif;
+	font-size:14px;
+	line-height:22px;
+	color:#d4d7dd;
+	text-align:left;
+}
+
+a {
+	text-decoration:none;
+	color:#6b6b6b;
+	font-size:14px;
+}
+
+a:hover {
+	color:#e8e9e9;
+}
+
+#video {
+    display:block;
+    position:absolute;
+    top:645px;
+    left:46px;
+    z-index:2;
+}
+
+#bg_01 {
+	background-image:url(../img/bg_01.jpg);
+	background-position:top center;
+	background-repeat:no-repeat;
+}
+
+#container_01 {
+	background-image:url(../img/bg_01.jpg);
+	background-position:top center;
+	background-repeat:no-repeat;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	width:984px;
+	height:920px;
+}
+
+#bg_02 {
+	background-image:url(../img/bg_02.jpg);
+	background-position:top center;
+	background-repeat:repeat;
+}
+
+#container_02 {
+	background-image:url(../img/bg_02.jpg);
+	background-position:top center;
+	background-repeat:repeat;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	width:984px;
+	height:2300px;
+}
+
+#bg_03 {
+    background-image:url(../img/bg_03.jpg);
+    background-position:top center;
+    background-repeat:no-repeat;
+}
+
+#container_03 {
+    background-image:url(../img/bg_03.jpg);
+    background-position:top center;
+    background-repeat:no-repeat;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    width:984px;
+    height:500px;
+}
+
+
+/* before and after */
+
+#before_after_01 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:450px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_02 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:0px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_03 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:50px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_04 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:100px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_05 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:150px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_06 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:200px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_07 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:250px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+
+/* top */
+
+#copy_01_01 {
+    position:absolute;
+    width:892px;
+    left:46px;
+    top:390px;
+
+}
+
+#copy_02_01 {
+	position:absolute;
+	width:892px;
+	left:46px;
+	top:140px;
+
+}
+
+#copy_02_02 {
+    position:absolute;
+    width:892px;
+    left:46px;
+    top:860px;
+}
+
+
+#copy_02_04 {
+    position:absolute;
+    width:892px;
+    left:46px;
+    top:1020px;
+}
+
+/* tunnels */
+
+#copy_03_01 {
+    position:absolute;
+    width:892px;
+    left:46px;
+    top:80px;
+}
+
+#copy_03_02{
+	position:absolute;
+	width:205px;
+	left:733px;
+	top:154px;
+}
+
+#copy_03_03{
+    position:absolute;
+    width:205px;
+    left:46px;
+    top:616px;
+}
+
+/* compete */
+
+#copy_04_01 {
+    position:absolute;
+    width:205px;
+    left:733px;
+    top:18px;
+}
+
+#copy_04_02{
+    position:absolute;
+    width:205px;
+    left:46px;
+    top:488px;
+}
+
+/* how to play */
+
+
+#copy_05_01 {
+	position:absolute;
+	width:892px;
+	left:46px;
+	top:22px;
+}
+
+/* bombsite B */
+
+#copy_06_01 {
+	position:absolute;
+	width:892px;
+	left:46px;
+	top:102px;
+}
+
+#copy_06_02 {
+    position:absolute;
+    width:205px;
+    left:46px;
+    top:802px;
+}
+
+#copy_07_01 {
+    position:absolute;
+    width:205px;
+    left:46px;
+    top:26px;
+}
+
+#copy_07_02 {
+    position:absolute;
+    width:210px;
+    left:733px;
+    top:488px;
+}
+
+#copy_08_01 {
+    position:absolute;
+    width:205px;
+    left:46px;
+    top:26px;
+}
+
+#copy_08_02 {
+    position:absolute;
+    width:875px;
+    left:46px;
+    top:540px;
+}
+
+#copy_09_01 {
+    position:absolute;
+    width:870px;
+    left:46px;
+    top:-20px;
+}
+
+#copy_09_02 {
+    position:absolute;
+    width:880px;
+    left:46px;
+    top:200px;
+}
+
+
+/* end copy */
+
+
+#logoLink {
+	display:block;
+	position:absolute;
+	top:20px;
+	left:345px;
+	width:270px;
+	height:70px;
+}
+
+#valveLinks {
+	display:block;
+	position:absolute;
+	width:748px;
+	height:100px;
+	top:90px;
+	left:116px;
+}
+
+.button:hover {
+	background-position:bottom;
+}
+
+
+
+
+
