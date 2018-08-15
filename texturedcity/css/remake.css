@@ -70,7 +70,7 @@ a:hover {
 	margin-left:auto;
 	margin-right:auto;
 	width:984px;
-	height:2300px;
+	height:3700px;
 }
 
 #bg_03 {
@@ -147,6 +147,22 @@ a:hover {
     width:892px;
     left:46px;
     top:250px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_08 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:300px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#before_after_09 {
+    position:relative;
+    width:892px;
+    left:46px;
+    top:350px;
 	box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
