@@ -277,6 +277,23 @@ md = {
       }
     });
   },
+  
+  showAlert: function(from, align, color, text) {
+    type = ['', 'info', 'danger', 'success', 'warning', 'primary'];
+
+    $.notify({
+      icon: "add_alert",
+      message: text
+
+    }, {
+      type: type[color],
+      timer: 3000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  },
 
   checkScrollForTransparentNavbar: debounce(function() {
     if ($(document).scrollTop() > 260) {

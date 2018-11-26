@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+	<meta charset="windows-1251">
   <link rel="shortcut icon" href="favicon.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Retakes - Servers</title>
@@ -110,9 +110,11 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-dashboard.js?v=2.1.0"></script>
   <script type="text/javascript" charset="utf-8" src="loadWidget.js"></script>
+  <script src="assets/js/clipboard.min.js"></script>
   <script>
 	function CopyIPToClipboard(ip) {
-		console.log('something ' + ip);
+		md.showAlert('top','center', 1, "connect " + ip + " скопирован. Вставьте это в консоль.");
+		copyTextToClipboard("connect " + ip);
 	}
 	
 	function LoadServer(serverid, serverip, serverport) {
@@ -150,6 +152,35 @@
 	LoadServer(39128, '78.31.67.240', 27037);
 	LoadServer(39116, '78.31.67.240', 27038);
 	LoadServer(39129, '78.31.67.240', 27039);
+	
+	function fallbackCopyTextToClipboard(text) {
+	  var textArea = document.createElement("textarea");
+	  textArea.value = text;
+	  document.body.appendChild(textArea);
+	  textArea.focus();
+	  textArea.select();
+
+	  try {
+		var successful = document.execCommand('copy');
+		var msg = successful ? 'successful' : 'unsuccessful';
+		console.log('Fallback: Copying text command was ' + msg);
+	  } catch (err) {
+		console.error('Fallback: Oops, unable to copy', err);
+	  }
+
+	  document.body.removeChild(textArea);
+	}
+	function copyTextToClipboard(text) {
+	  if (!navigator.clipboard) {
+		fallbackCopyTextToClipboard(text);
+		return;
+	  }
+	  navigator.clipboard.writeText(text).then(function() {
+		console.log('Async: Copying to clipboard was successful!');
+	  }, function(err) {
+		console.error('Async: Could not copy text: ', err);
+	  });
+	}
 	
     $(document).ready(function() {
       $().ready(function() {
