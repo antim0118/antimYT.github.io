@@ -1,0 +1,159 @@
+
+{{#ifCond type '==' 'BADGE_EARNED'}}
+    <div class="news-sidebar-item BADGE_EARNED">
+        <table>
+            <tr>
+                <td>
+                    <img src="{{staticFilesUrl}}/badges/badge_{{badgeId}}.png" width="40px"  />
+                </td>
+                <td class="px-6">
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    earned the
+                    <span class="orange">{{badgeName}}</span> Badge
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
+
+{{#ifCond type '==' 'BOUGHT_STORE_ITEM'}}
+     <div class="news-sidebar-item BOUGHT_STORE_ITEM">
+        <table>
+            <tr>
+                <td>
+                    {{#if isSkin}}
+                    <img src="{{iconUrl}}" width="40px" onerror="handleSkinImageError(this, '{{steamClassId}}','{{steamInstanceId}}','40')"   />
+                    {{else}}
+                    {{#if iconUrl}}
+                    <img src="{{iconUrl}}" width="40px"  />
+                    {{else}}
+                    <img src="{{staticFilesUrl}}/inventory/invdef_{{defId}}.png" width="40px"  />
+                    {{/if}}
+                    {{/if}}
+                </td>
+                <td class="px-6">
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    bought <br/>
+                    <span style="font-size: 12px">{{defName}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
+
+{{#ifCond type '==' 'OPENED_CASE'}}
+     <div class="news-sidebar-item OPENED_CASE">
+        <table>
+            <tr>
+                <td>
+                    {{#if isSkin}}
+                    <img src="{{iconUrl}}" width="40px" onerror="handleSkinImageError(this, '{{steamClassId}}','{{steamInstanceId}}','40')"   />
+                    {{else}}
+                    {{#if iconUrl}}
+                    <img src="{{iconUrl}}" width="40px"  />
+                    {{else}}
+                    <img src="{{staticFilesUrl}}/inventory/invdef_{{defId}}.png" width="40px"  />
+                    {{/if}}
+                    {{/if}}
+
+                </td>
+                <td class="px-6">
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    opened a <span class="orange">{{caseDefName}} </span> and revealed a
+                    <span class="orange">{{defName}} </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
+
+{{#ifCond type '==' 'PLAYER_BANNED'}}
+     <div class="news-sidebar-item PLAYER_BANNED">
+        <table>
+            <tr>
+                <td>
+                    <img  width="40" src="{{imgFilesUrl}}/hammer-02.png">
+                </td>
+                <td class="px-6">
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    was
+                    {{#if isPermanent}}
+                    <span class="orange">permanently</span> banned
+                    {{else}}
+                    banned for <span class="orange">{{banHours}} </span> hours
+                    {{/if}}
+                    {{#if hasBanReason}}
+                    due to {{banReason}}
+                    {{/if}}
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
+
+{{#ifCond type '==' 'RANK_CHANGED'}}
+     <div class="news-sidebar-item RANK_CHANGED">
+        <table>
+            <tr>
+                <td>
+                    <img  width="40" src="{{imgFilesUrl}}/RANK-{{rankName}}-GROUP.png">
+                </td>
+                <td class="px-6">
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    is now
+                    <span class="orange" >{{rankName}} </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
+
+{{#ifCond type '==' 'WON_CREDITS'}}
+     <div class="news-sidebar-item WON_CREDITS">
+        <table>
+            <tr>
+                <td>
+                    <img src="{{creditsWonIconUrl}}" width="40px"  />
+                </td>
+                <td class="px-6">
+                    {{#if username}}
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    {{/if}}
+                    {{#unless username}}
+                    {{#each displayNamePerUsername}}
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{displayname}}</span>{{#if ../displayNamePerUsernameHasMore}},{{/if}}
+                    {{/each}}
+                    {{/unless}}
+                    won
+                    <img style="width:16px;margin-top: -2px" src="{{imgFilesUrl}}/pvpro_coin.png"/>
+                    <span class="orange">{{amount}} </span>
+                    {{#unless username}} each {{/unless}}
+                    in {{cn}}
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
+
+{{#ifCond type '==' 'WON_SKINS'}}
+     <div class="news-sidebar-item WON_SKINS">
+        <table>
+            <tr>
+                <td>
+                    {{#if iconUrl}}
+                    <img src="{{iconUrl}}" width="40px" />
+                    {{/if}}
+                    {{#unless iconUrl}}
+                    <img src="{{staticFilesUrl}}/inventory/invdef_{{defId}}.png" width="40px"  />
+                    {{/unless}}
+                </td>
+                <td class="px-6">
+                    <span class="orange user-profile-link" onclick="showMiniProfile('{{username}}')">{{username}}</span>
+                    won
+                    <span class="orange">{{defName}} </span>
+                    in {{cn}}
+                </td>
+            </tr>
+        </table>
+    </div>
+{{/ifCond}}
