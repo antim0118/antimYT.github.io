@@ -1,0 +1,13 @@
+[table][tr]
+[td][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/de_vertigo/header.gif[/img]
+
+   [b]Textured City[/b] is a bomb-defusal map that was created in Dust 2 style.
+   It contains 1 site, so you can easily play it for 1v1, 2v2 or 5v5 modes.
+
+   Initially, the map was all in the developer-textures and uploaded from my other account.
+   [url=https://antimyt.github.io/texturedcity/]Comparison of the old and new version[/url]
+
+[url=https://steamcommunity.com/tradeoffer/new/?partner=438096278&token=VSy9DzlN][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/texturedcity/img/steam/donate_x624.png[/img][/url]
+
+[img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/de_vertigo/bottom.png[/img]
+[/td][/tr][/table]
