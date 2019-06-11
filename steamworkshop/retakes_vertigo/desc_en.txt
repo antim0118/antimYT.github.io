@@ -1,13 +1,32 @@
 [table][tr]
-[td][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/de_vertigo/header.gif[/img]
+[td][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/retakes_vertigo/header.gif[/img]
 
-   [b]Textured City[/b] is a bomb-defusal map that was created in Dust 2 style.
-   It contains 1 site, so you can easily play it for 1v1, 2v2 or 5v5 modes.
+[h1][b]   Welcome to Retakes mode![/b][/h1]
+[b]   With this map you can train retakes with bots or your friends.[/b]
 
-   Initially, the map was all in the developer-textures and uploaded from my other account.
-   [url=https://antimyt.github.io/texturedcity/]Comparison of the old and new version[/url]
 
+[h1]   Map rules:[/h1]
+[list]
+	[*] Every round, all players get one type of weapon (Pistols/SMGs/Rifles).
+	[*] Each player receives a different pack of grenades at the beginning of the round.
+	[*] Player with the bomb must plant it at the beginning of the round.
+	[*] T's should defend the bomb and kill all CT's to win round.
+	[*] CT's should defuse the bomb and/or kill all T's to win round and swap sides.
+	[*] Any player can use chat commands to toggle something.
+[/list]
+
+
+[h1]   Donation system:[/h1]
+   Map has it's own [i]Donation system[/i].
+   Everytime someone wins you can see random message from any player, who donated items.
+   [u]Wanna see yourself in-game? Click the button below![/u] (thanks)
 [url=https://steamcommunity.com/tradeoffer/new/?partner=438096278&token=VSy9DzlN][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/texturedcity/img/steam/donate_x624.png[/img][/url]
+   p.s: frequency depends on donate value
 
-[img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/de_vertigo/bottom.png[/img]
+
+[h1]   Other maps:[/h1]
+[list]
+    [*] [url=steamcommunity.com/sharedfiles/filedetails/?id=1579290805]Inferno: B Site[/url] (kinda outdated)
+[/list]
+[img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/retakes_vertigo/bottom.png[/img]
 [/td][/tr][/table]
