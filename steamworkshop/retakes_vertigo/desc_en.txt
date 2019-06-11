@@ -17,10 +17,10 @@
 
 
 [h1]   Donation system:[/h1]
-   Map has it's own [i]Donation system[/i].
    Everytime someone wins you can see random message from any player, who donated items.
+   [img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/donate.gif[/img]
    [u]Wanna see yourself in-game? Click the button below![/u] (thanks)
-[url=https://steamcommunity.com/tradeoffer/new/?partner=438096278&token=VSy9DzlN][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/texturedcity/img/steam/donate_x624.png[/img][/url]
+[url=https://steamcommunity.com/tradeoffer/new/?partner=438096278&token=VSy9DzlN][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/donate.png[/img][/url]
    p.s: frequency depends on donate value
 
 

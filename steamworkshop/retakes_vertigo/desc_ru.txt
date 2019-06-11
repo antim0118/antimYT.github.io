@@ -1,0 +1,32 @@
+[table][tr]
+[td][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/retakes_vertigo/header.gif[/img]
+
+[h1][b]   Добро пожаловать в режим Ретейков![/b][/h1]
+[b]   С этой картой вы можете натренировать ретейки с ботами или с друзьями.[/b]
+
+
+[h1]   Правила карты:[/h1]
+[list]
+	[*] Каждый раунд все игроки получают оружие одного типа (Пистолеты/SMG/Пулеметы).
+	[*] Каждый игрок получает различный набор гранат в начале раунда.
+	[*] Игрок с бомбой должен поставить ее в начале раунда.
+	[*] Террористы должны защитить бомбу и убить всех Контер-Террористов, чтобы выиграть раунд.
+	[*] Контер-Террористы должны обезвредить бомбу и/или убить всех Террористов, чтобы выиграть раунд и поменяться местами.
+	[*] Все игроки могут пользоваться командами в чате, чтобы поменять что-то.
+[/list]
+
+
+[h1]   Система доната:[/h1]
+   Каждый раз, когда кто-то выигрывает, вы можете увидеть рандомное сообщение от любого игрока, кто задонатил предметы.
+   [img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/donate.gif[/img]
+   [u]Хочешь увидеть себя в игре? Жми кнопку ниже![/u] (спс)
+[url=https://steamcommunity.com/tradeoffer/new/?partner=438096278&token=VSy9DzlN][img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/donate.png[/img][/url]
+   p.s: частота появления сообщения зависит от стоимости доната
+
+
+[h1]   Другие карты:[/h1]
+[list]
+    [*] [url=steamcommunity.com/sharedfiles/filedetails/?id=1579290805]Inferno: B плент[/url] (чутка устарело)
+[/list]
+[img]https://raw.githubusercontent.com/antimYT/antimYT.github.io/master/steamworkshop/retakes_vertigo/bottom.png[/img]
+[/td][/tr][/table]
